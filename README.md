@@ -1,2 +1,2 @@
-# STDLIST
-Self-centered To-Do LIST
+# STDLIST(concept)
+概念阶段
