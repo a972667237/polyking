@@ -1,2 +1,2 @@
-# STDLIST(concept)
-有空再写嘿嘿嘿
+# a simple python-based TO-DO list
+sort of homework....
