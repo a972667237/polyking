@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Things
 from .form import AddForm
 from django.utils import timezone
@@ -16,9 +16,10 @@ def new(request):
     if request.method == 'POST':#提交请求时才会访问这一段，首次访问页面时不会执行
         form = AddForm(request.POST)
         if form.is_valid():
-            q = Things(thing_text=form.a, add_date=timezone.now())
-            q.save
-            return HttpResponseRedirect('/')
+            form.save()
+            return HttpResponseRedirect('/todo')
+        else:
+            return HttpResponse('error')
     else:#首次访问该url时没有post任何表单
         form = AddForm()
     return render(request, 'todo/add.html', {'form': form})
